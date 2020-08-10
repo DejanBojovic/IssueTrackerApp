@@ -1,11 +1,11 @@
 // function that checks if there are issues in the local storage when page loads
 (function startLocalStorage() {
     if(localStorage.getItem("issues") !== null) {
-        // if user realoads page and there are some issues storred in local storage this function wil display them again on the page
+        // if user realoads page and there are some issues stored in local storage this function will display them again on the page
         displayAllIssues();
     } else {
         // if on page load there is nothing in local storage this will create an array that will store future issues
-        // issues are being storred as objects inside of thi array
+        // issues are being storred as objects inside of the array
         localStorage.setItem("issues", JSON.stringify([]));
     }
 })();
@@ -20,7 +20,7 @@ const submit = document.querySelector(".input-button");
 // adding event listener on submit button that adds the issue
 submit.addEventListener("click", displayIssue);
 
-// function that gather all the info for creating issue object
+// function that gathers all the info for creating issue object
 // its being called inside of displayIssue funciton that is being invoked when user presses Submit button
 function createIssue() {
     // warn signs for description and assignedTo input fields
@@ -57,11 +57,11 @@ function createIssue() {
     warnDescription.style.visibility = "hidden";
     warnAssignedTo.style.visibility = "hidden";
 
-    // if all the input fields have necessary data it is being storred in "issue" object
+    // if all the input fields have necessary data it is being stored in "issue" object
     issue.description = description.value;
     issue.assignedTo = assignedTo.value;
 
-    // storring severity based on range input
+    // storing severity based on range input
     if(severity.value === "0") {
         issue.severity = "Low";
     } else if(severity.value === "1") {
@@ -136,7 +136,7 @@ function displayIssue() {
     const closeButton = document.querySelector(".issue-button-close");
     closeButton.addEventListener("click", closeIssue);
 
-    // removing all the info from input fields
+    // removing all the info from input fields - reseting them
     description.value = "";
     assignedTo.value = "";
     severity.value = 0;
